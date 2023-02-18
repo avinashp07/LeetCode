@@ -1,23 +1,24 @@
 class Solution {
 public:
     bool isSubsequence(string s, string t) {
+        int i=0,j=0;
         int m=s.size();
         int n=t.size();
-        vector<vector<int>> dp(m+1,vector<int>(n+1,0));
-        for(int i=m-1;i>=0;i--)
+        while(j<=n)
         {
-            for(int j=n-1;j>=0;j--)
+            if(s[i]==t[j])
             {
-                if(s[i]==t[j]) dp[i][j]=dp[i+1][j+1] +1;
-
-                else
-                {
-                    dp[i][j]=dp[i][j+1];
-                }
+                i++;
+                j++;
+            }
+            else
+            {
+                j++;
             }
         }
-        if(dp[0][0]==s.length()) return true;
+        if(i<=m) return false;
+
         else
-        return false;
+        return true;
     }
 };
