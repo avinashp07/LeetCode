@@ -10,18 +10,6 @@
  */
 class Solution {
 public:
-    ListNode* reverse(ListNode* node){
-        ListNode* temp=NULL;
-        ListNode* next=node;
-        while(next!=NULL)
-        {
-            next=node->next;
-            node->next=temp;
-            temp=node;
-            node=next;
-        }
-        return temp;
-    }
     ListNode* mid(ListNode* head){
         ListNode* slow=head;
         ListNode* fast=head;
